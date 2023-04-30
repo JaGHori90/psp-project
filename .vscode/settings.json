@@ -1,0 +1,21 @@
+{
+	"editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.autoSave": "off",
+	"files.eol": "auto",
+	"eslint.validate": ["javascript", "typescript", "svelte"],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"svelte.plugin.css.globals": "src/styles/_variables.scss",
+	"explorer.fileNesting.patterns": {
+		"*.ts": "${capture}.test.ts",
+		"+*.ts": "${capture}.test.ts",
+		"+*.svelte": "${capture}.test.ts"
+	},
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true,
+		"**/.hg/store/**": true
+	}
+}

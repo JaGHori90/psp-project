@@ -1,0 +1,91 @@
+/* stylelint-disable property-disallowed-list */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	block-size: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	text-size-adjust: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	min-block-size: 100vh;
+}
+
+textarea {
+	resize: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	content-visibility: auto;
+	-webkit-touch-callout: none;
+	-webkit-user-drag: none;
+	user-select: none;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+label,
+input {
+	color: inherit;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 1;
+	overflow-wrap: break-word;
+}
+
+button {
+	padding: 0;
+	border: unset;
+	background: none;
+	cursor: pointer;
+}
+
+a {
+	color: currentColor;
+}
+
+mark {
+	background-color: transparent;
+}
+
+a,
+button {
+	touch-action: manipulation;
+}
+
+dialog {
+	width: inherit;
+	height: inherit;
+	padding: 0;
+	border: inherit;
+	background-color: inherit;
+}
