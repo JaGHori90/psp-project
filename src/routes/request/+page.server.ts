@@ -20,6 +20,7 @@ const requestFormSchema = z.object({
 		.refine((value) => ['STUDENT', 'TEACHER'].includes(value), { message: 'Invalid user type' })
 });
 
+// create a type from the schema
 export type RequestForm = z.infer<typeof requestFormSchema>;
 
 const client = new SESClient({
