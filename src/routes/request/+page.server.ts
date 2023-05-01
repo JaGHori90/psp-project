@@ -1,20 +1,18 @@
-//import prisma from '$lib/prisma'; // TODO: this doesn't work, why?
+import prisma from '$lib/prisma';
 import { redirect, error } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import z from 'zod';
-import { PrismaClient, UserType } from '@prisma/client';
+import type { UserType } from '@prisma/client';
 import { render } from 'svelte-email';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import UserConfirmationEmail from '$components/emails/UserConfirmationEmail.svelte';
 import { env } from '$env/dynamic/private';
 
-const prisma = new PrismaClient();
-
 const requestFormSchema = z.object({
 	firstname: z.string().min(2, { message: 'First name must be at least 2 characters long' }),
 	lastname: z.string().min(2, { message: 'Last name must be at least 2 characters long' }),
 	email: z.string().email({ message: 'Invalid email address' }),
-	message: z.string(), //.min(10, { message: 'Message must be at least 10 characters long' }),
+	message: z.string().min(5, { message: 'Message must be at least 10 characters long' }),
 	phone: z.string().regex(/^(\+|0)[0-9]{10,14}$/, { message: 'Invalid phone number' }),
 	type: z
 		.string()
@@ -49,6 +47,7 @@ export const actions = {
 				console.error(errors);
 
 				return {
+					data: payload,
 					errors
 				};
 			}
